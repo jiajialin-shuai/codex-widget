@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		05BEC992DD820D638A755293 /* UsageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647B7F44E95E4366947F23E /* UsageStore.swift */; };
 		05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */; };
-		14E97C636A3D0CB27522F652 /* DesktopWidgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */; };
 		22E2A0E9B8B773F070493DC8 /* CodexBatteryWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */; };
 		4F976EAACA3BE6AE4562EEFD /* CodexBatteryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */; };
@@ -56,7 +55,6 @@
 		D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexBatteryWidget.swift; sourceTree = "<group>"; };
 		D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageSnapshot.swift; sourceTree = "<group>"; };
 		D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotBridge.swift; sourceTree = "<group>"; };
-		EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWidgetController.swift; sourceTree = "<group>"; };
 		F478940D8B4F853954CE0822 /* CodexBattery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodexBattery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,7 +99,6 @@
 			children = (
 				BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */,
 				632016BFB62E70E62C6E14D3 /* CodexClient.swift */,
-				EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */,
 				D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */,
 				7647B7F44E95E4366947F23E /* UsageStore.swift */,
 			);
@@ -202,7 +199,6 @@
 				4F99803604B5E1287A0FF322 /* BatteryViews.swift in Sources */,
 				05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */,
 				8A1B4CC5705A485C32A32914 /* CodexClient.swift in Sources */,
-				14E97C636A3D0CB27522F652 /* DesktopWidgetController.swift in Sources */,
 				24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */,
 				CF9E45936273460DE695B160 /* UsageSnapshot.swift in Sources */,
 				05BEC992DD820D638A755293 /* UsageStore.swift in Sources */,
@@ -320,7 +316,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -389,7 +385,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;

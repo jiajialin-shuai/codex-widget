@@ -8,7 +8,8 @@
 - 主程序默认每 15 分钟查询，失败退避，睡眠暂停，唤醒刷新。查询完成或超时终止自建子进程。
 - 用户要求隐藏顶部图标：默认不显示菜单栏图标，设置中可开启。没有图标时仍刷新；点击 Widget 或重新打开应用可进入设置。
 - WidgetKit 从仅绑定 127.0.0.1 的只读快照服务读数据，自己保留离线缓存，不启动 CLI、不读凭据。系统决定最终刷新时间。
-- 用户实测 WidgetKit 两种背景写法都呈现色块，因此另提供原生 AppKit 透明桌面组件。macOS 26+ 用 `NSGlassEffectView`（通透/柔和）；旧系统用 `NSVisualEffectView`。在桌面图标层、不盖普通应用窗口，无持续动画；不能把它称作 WidgetKit 卡片。
+- 用户明确只要从系统组件界面添加的 WidgetKit 小组件；禁止使用独立 NSPanel、桌面浮层或自制桌面窗口替代。此前的独立桌面组件已移除。透明背景必须在真正的 WidgetKit 卡片上研究和验证。
+- 安装更新时必须重启本项目的 Widget 扩展进程，避免系统继续运行旧二进制。实际数据条目移除遗留的 placeholder redaction，保留 privacy redaction。占位状态与真实条目必须分开。
 - 缓存、构建产物、真实账号响应不得进入 Git。只存展示需要的归一化字段，不保存账号 ID、邮箱、卡 ID 或 Token。
 - `scripts/build.sh` 构建；`scripts/check.sh` 检查解析、进程生命周期和实时查询；`scripts/install.sh` 安装。
 - 完整 Xcode 用 `DEVELOPER_DIR` 指定，禁止全局切换开发环境。

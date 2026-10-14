@@ -1,14 +1,16 @@
 import Foundation
 import SwiftUI
 import WidgetKit
+import OSLog
 
 struct BatteryEntry: TimelineEntry {
     let date: Date
     let snapshot: UsageSnapshot
+    var isPlaceholder = false
 }
 
 struct BatteryProvider: TimelineProvider {
-    func placeholder(in context: Context) -> BatteryEntry { BatteryEntry(date: Date(), snapshot: .sample) }
+    func placeholder(in context: Context) -> BatteryEntry { BatteryEntry(date: Date(), snapshot: .sample, isPlaceholder: true) }
     func getSnapshot(in context: Context, completion: @escaping (BatteryEntry) -> Void) {
         let snapshot = context.isPreview ? UsageSnapshot.sample : SnapshotCache.load()
         completion(BatteryEntry(date: Date(), snapshot: snapshot))
@@ -36,10 +38,17 @@ struct BatteryProvider: TimelineProvider {
 struct BatteryWidgetView: View {
     let entry: BatteryEntry
     @Environment(\.widgetFamily) private var family
+    @Environment(\.redactionReasons) private var redactionReasons
+    @Environment(\.widgetRenderingMode) private var renderingMode
+    @Environment(\.showsWidgetContainerBackground) private var showsBackground
+    private static let logger = Logger(subsystem: "com.jiajialin.codexbattery.widget", category: "Rendering")
     var body: some View {
+        let _ = Self.logger.info("placeholder=\(entry.isPlaceholder, privacy: .public) hasData=\(entry.snapshot.hasData, privacy: .public) redaction=\(redactionReasons.rawValue, privacy: .public) mode=\(renderingMode.description, privacy: .public) background=\(showsBackground, privacy: .public)")
         BatteryContent(snapshot: entry.snapshot,
                        layout: family == .systemSmall ? .small : family == .systemMedium ? .medium : .large,
                        date: entry.date)
+            // A real entry must not inherit a stuck loading mask. Retain any privacy redaction.
+            .environment(\.redactionReasons, entry.isPlaceholder ? redactionReasons : redactionReasons.subtracting(.placeholder))
             .containerBackground(for: .widget) { Color.clear }
             .widgetURL(URL(string: "codexbattery://refresh"))
     }
@@ -53,5 +62,6 @@ struct CodexBatteryWidget: Widget {
             .configurationDisplayName("Codex 电池")
             .description("查看周额度和五小时额度，了解重置时间与重置卡。")
             .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+            .containerBackgroundRemovable(true)
     }
 }

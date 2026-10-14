@@ -11,10 +11,10 @@
 - 设置窗口：真实数据和三种尺寸预览、15/30/60 分钟刷新、开机启动。
 - 使用系统字体和语义前景颜色，低于等于 20% 用橙色、低于等于 10% 用红色；同时保留数字，不只依赖颜色。无持续动画。
 - WidgetKit 背景留给系统；用户实测 `Color.clear` 与 `ultraThinMaterial` 都没有达到想要的半透明效果。保留 `Color.clear` 以适应系统渲染模式，不宣称全彩模式下能强制透明。
-- 透明桌面组件是独立 AppKit 面板：位于桌面图标层，普通应用窗口在其上方，可拖动并保存位置、可双击打开设置。macOS 26+ 使用 `NSGlassEffectView`，默认“柔和”玻璃保证信息可读，也提供“通透”选择；macOS 14/15 回退 `NSVisualEffectView`。无持续动画，macOS 27 关闭互动玻璃行为。
+- 仅支持从系统小组件界面添加的 WidgetKit 卡片。独立 NSPanel/桌面面板已按用户要求移除，不用自制窗口替代组件。
 - 应用内预览卡片也使用 `.ultraThinMaterial`；窗口背景使用标准 `NSVisualEffectView` 的 `.windowBackground` 材质，不用不透明卡片填充。关闭窗口后释放视图，材质不在后台常驻。
 
-资料：[WidgetKit 背景](https://developer.apple.com/documentation/widgetkit/displaying-the-right-widget-background)、[渲染模式与玻璃](https://developer.apple.com/documentation/widgetkit/optimizing-your-widget-for-accented-rendering-mode-and-liquid-glass)、[AppKit NSGlassEffectView](https://developer.apple.com/documentation/appkit/nsglasseffectview)。WidgetKit 背景策略的观察来自本机测试与用户反馈，不扩展成“所有系统都不支持”的断言。
+资料：[WidgetKit 背景](https://developer.apple.com/documentation/widgetkit/displaying-the-right-widget-background)、[渲染模式与玻璃](https://developer.apple.com/documentation/widgetkit/optimizing-your-widget-for-accented-rendering-mode-and-liquid-glass)。具体结论见 [透明效果研究](WIDGET_BACKGROUND_RESEARCH.md)；不从设置预览推断真实桌面效果。
 
 ## 数据与资源
 

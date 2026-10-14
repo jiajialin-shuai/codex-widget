@@ -32,12 +32,9 @@ struct CodexBatteryApp: App {
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var window: NSWindow?
-    private var desktop: DesktopWidgetController?
-    weak var store: UsageStore?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let store = UsageStore.shared // Refresh even when the menu bar item is hidden.
-        desktop = DesktopWidgetController(store: store) { [weak self] in self?.showWindow(store: store) }
+        _ = UsageStore.shared // Refresh even when the menu bar item is hidden.
         // Main app menu remains available for a visible preview/settings window.
         let menu = NSMenu()
         let appItem = NSMenuItem()
@@ -53,7 +50,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
     func showWindow(store: UsageStore) {
-        self.store = store
         if window == nil {
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 840, height: 650),
                                   styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
@@ -74,9 +70,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func application(_ application: NSApplication, open urls: [URL]) {
         let store = UsageStore.shared
         store.refresh()
-        if urls.contains(where: { $0.host == "desktop-preview" }) {
-            desktop?.showPreview()
-        } else { showWindow(store: store) }
+        showWindow(store: store)
     }
     func applicationWillTerminate(_ notification: Notification) { CodexClient.stopAll() }
 }
@@ -122,19 +116,6 @@ struct SettingsView: View {
             }
             Toggle("显示菜单栏图标", isOn: $showMenuBarIcon)
                 .font(.system(size: 12))
-            HStack(spacing: 14) {
-                Toggle("透明桌面组件", isOn: $store.desktopEnabled)
-                Picker("尺寸", selection: $store.desktopSize) {
-                    Text("小号").tag("small"); Text("中号").tag("medium"); Text("大号").tag("large")
-                }.frame(width: 180)
-                if #available(macOS 26, *) {
-                    Picker("玻璃", selection: $store.desktopGlassStyle) {
-                        Text("通透").tag("clear"); Text("柔和").tag("regular")
-                    }.frame(width: 150)
-                }
-                Text("拖动移动 · 双击打开设置").font(.system(size: 11)).foregroundStyle(.secondary)
-                Spacer()
-            }.font(.system(size: 12))
             HStack {
                 Text("Codex 路径").font(.system(size: 12))
                 TextField("自动查找（可留空）", text: $store.customPath).textFieldStyle(.roundedBorder)

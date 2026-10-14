@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 enum BatteryLayout { case small, medium, large }
 
@@ -8,8 +9,10 @@ struct BatteryRing: View {
     let symbol: String
     var diameter: CGFloat = 58
     var dimmed = false
+    @Environment(\.widgetRenderingMode) private var renderingMode
 
     private var tint: Color {
+        if renderingMode != .fullColor { return .primary }
         guard let remaining = window?.remaining else { return .secondary }
         if dimmed { return .secondary }
         if remaining <= 10 { return Color(nsColor: .systemRed) }
@@ -24,6 +27,7 @@ struct BatteryRing: View {
                     Circle().trim(from: 0, to: remaining / 100)
                         .stroke(tint, style: StrokeStyle(lineWidth: diameter * 0.075, lineCap: .round))
                         .rotationEffect(.degrees(-90))
+                        .widgetAccentable()
                 }
                 Image(systemName: symbol)
                     .font(.system(size: diameter * 0.36, weight: .medium))

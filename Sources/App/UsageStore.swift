@@ -8,15 +8,6 @@ final class UsageStore: ObservableObject {
     @Published var snapshot = SnapshotCache.load()
     @Published var refreshing = false
     @Published var bridgeError: String?
-    @Published var desktopEnabled: Bool {
-        didSet { UserDefaults.standard.set(desktopEnabled, forKey: "desktopEnabled") }
-    }
-    @Published var desktopSize: String {
-        didSet { UserDefaults.standard.set(desktopSize, forKey: "desktopSize") }
-    }
-    @Published var desktopGlassStyle: String {
-        didSet { UserDefaults.standard.set(desktopGlassStyle, forKey: "desktopGlassStyle") }
-    }
     @Published var intervalMinutes: Int {
         didSet { UserDefaults.standard.set(intervalMinutes, forKey: "intervalMinutes"); schedule() }
     }
@@ -31,11 +22,12 @@ final class UsageStore: ObservableObject {
     private var observers: [NSObjectProtocol] = []
 
     init() {
+        // Retired desktop-panel preferences must not recreate an independent desktop surface.
+        for key in ["desktopEnabled", "desktopSize", "desktopGlassStyle", "desktopOrigin"] {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
         let stored = UserDefaults.standard.integer(forKey: "intervalMinutes")
         intervalMinutes = [15, 30, 60].contains(stored) ? stored : 15
-        desktopEnabled = UserDefaults.standard.bool(forKey: "desktopEnabled")
-        desktopSize = UserDefaults.standard.string(forKey: "desktopSize") ?? "small"
-        desktopGlassStyle = UserDefaults.standard.string(forKey: "desktopGlassStyle") ?? "regular"
         customPath = UserDefaults.standard.string(forKey: "customPath") ?? ""
         snapshot.isOffline = true
         bridge.start(snapshot: snapshot) { [weak self] error in
