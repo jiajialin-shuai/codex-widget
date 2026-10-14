@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05BEC992DD820D638A755293 /* UsageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647B7F44E95E4366947F23E /* UsageStore.swift */; };
+		05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */; };
+		14E97C636A3D0CB27522F652 /* DesktopWidgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */; };
+		22E2A0E9B8B773F070493DC8 /* CodexBatteryWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */; };
+		4F976EAACA3BE6AE4562EEFD /* CodexBatteryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */; };
+		4F99803604B5E1287A0FF322 /* BatteryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CF4C75241951AB964C741 /* BatteryViews.swift */; };
+		8A1B4CC5705A485C32A32914 /* CodexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632016BFB62E70E62C6E14D3 /* CodexClient.swift */; };
+		8AE33E37266040FB77874BF4 /* BatteryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CF4C75241951AB964C741 /* BatteryViews.swift */; };
+		BC471EBED73EE64FE2E4AE97 /* WidgetSnapshotLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */; };
+		CF9E45936273460DE695B160 /* UsageSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */; };
+		E48B0E59CDEF008C2B112E19 /* UsageSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */; };
+		FCBD959EDACBB0C5C3806E62 /* WidgetSnapshotLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9EB7B2EDE506E852E68E07C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 098278758E05643D091A5890 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6BEA492F64963B5BFB9BE25;
+			remoteInfo = CodexBatteryWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		79CC11602F6F23C24A911939 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				22E2A0E9B8B773F070493DC8 /* CodexBatteryWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		493CF4C75241951AB964C741 /* BatteryViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViews.swift; sourceTree = "<group>"; };
+		5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CodexBatteryWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		632016BFB62E70E62C6E14D3 /* CodexClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexClient.swift; sourceTree = "<group>"; };
+		67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshotLoader.swift; sourceTree = "<group>"; };
+		7647B7F44E95E4366947F23E /* UsageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageStore.swift; sourceTree = "<group>"; };
+		BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexBatteryApp.swift; sourceTree = "<group>"; };
+		D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexBatteryWidget.swift; sourceTree = "<group>"; };
+		D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageSnapshot.swift; sourceTree = "<group>"; };
+		D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotBridge.swift; sourceTree = "<group>"; };
+		EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWidgetController.swift; sourceTree = "<group>"; };
+		F478940D8B4F853954CE0822 /* CodexBattery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodexBattery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0DE2272158329168FCFECA6F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F478940D8B4F853954CE0822 /* CodexBattery.app */,
+				5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		396565B5852AFC247FD43F41 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				493CF4C75241951AB964C741 /* BatteryViews.swift */,
+				D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */,
+				67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		58252AFADDB107E591F12459 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		7017AFD4455206B9B4086EC4 = {
+			isa = PBXGroup;
+			children = (
+				E2FA9962F913BD4882BC1C74 /* Sources */,
+				0DE2272158329168FCFECA6F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		953580C0E782A0E0456C5E1D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */,
+				632016BFB62E70E62C6E14D3 /* CodexClient.swift */,
+				EE7D3BBB53D2D0C654C3E02F /* DesktopWidgetController.swift */,
+				D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */,
+				7647B7F44E95E4366947F23E /* UsageStore.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E2FA9962F913BD4882BC1C74 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				953580C0E782A0E0456C5E1D /* App */,
+				396565B5852AFC247FD43F41 /* Shared */,
+				58252AFADDB107E591F12459 /* Widget */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01B921C669B395896304F058 /* CodexBattery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B22111ACE7FA5FCCAD205429 /* Build configuration list for PBXNativeTarget "CodexBattery" */;
+			buildPhases = (
+				B9A8C6CB4B4AAC8E4803D29B /* Sources */,
+				79CC11602F6F23C24A911939 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A21CA4F49461FA51FDC85DC /* PBXTargetDependency */,
+			);
+			name = CodexBattery;
+			packageProductDependencies = (
+			);
+			productName = CodexBattery;
+			productReference = F478940D8B4F853954CE0822 /* CodexBattery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E6BEA492F64963B5BFB9BE25 /* CodexBatteryWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8770BB894BC09D9A5EEBF506 /* Build configuration list for PBXNativeTarget "CodexBatteryWidget" */;
+			buildPhases = (
+				DF2C885D1FEE0926C1D37ACC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodexBatteryWidget;
+			packageProductDependencies = (
+			);
+			productName = CodexBatteryWidget;
+			productReference = 5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		098278758E05643D091A5890 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					01B921C669B395896304F058 = {
+						ProvisioningStyle = Manual;
+					};
+					E6BEA492F64963B5BFB9BE25 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 2DB644ADF0F8FF8BC941A0B3 /* Build configuration list for PBXProject "CodexBattery" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7017AFD4455206B9B4086EC4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0DE2272158329168FCFECA6F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01B921C669B395896304F058 /* CodexBattery */,
+				E6BEA492F64963B5BFB9BE25 /* CodexBatteryWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9A8C6CB4B4AAC8E4803D29B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F99803604B5E1287A0FF322 /* BatteryViews.swift in Sources */,
+				05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */,
+				8A1B4CC5705A485C32A32914 /* CodexClient.swift in Sources */,
+				14E97C636A3D0CB27522F652 /* DesktopWidgetController.swift in Sources */,
+				24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */,
+				CF9E45936273460DE695B160 /* UsageSnapshot.swift in Sources */,
+				05BEC992DD820D638A755293 /* UsageStore.swift in Sources */,
+				BC471EBED73EE64FE2E4AE97 /* WidgetSnapshotLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF2C885D1FEE0926C1D37ACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE33E37266040FB77874BF4 /* BatteryViews.swift in Sources */,
+				4F976EAACA3BE6AE4562EEFD /* CodexBatteryWidget.swift in Sources */,
+				E48B0E59CDEF008C2B112E19 /* UsageSnapshot.swift in Sources */,
+				FCBD959EDACBB0C5C3806E62 /* WidgetSnapshotLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A21CA4F49461FA51FDC85DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6BEA492F64963B5BFB9BE25 /* CodexBatteryWidget */;
+			targetProxy = B9EB7B2EDE506E852E68E07C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07F983FCDB88D1F68C1657AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/Widget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Widget-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiajialin.codexbattery.widget;
+				PRODUCT_NAME = CodexBatteryWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1D60AA0FC0D3CEE7B4BBC6B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/App.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/App-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiajialin.codexbattery;
+				PRODUCT_NAME = CodexBattery;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1DFFFF111ED9B867C09127F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/App.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/App-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiajialin.codexbattery;
+				PRODUCT_NAME = CodexBattery;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1E4872821E71EC07FF955727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5E755CA83B5DC081BF566D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A757F160360440F0DF9BA951 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/Widget.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Resources/Widget-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiajialin.codexbattery.widget;
+				PRODUCT_NAME = CodexBatteryWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DB644ADF0F8FF8BC941A0B3 /* Build configuration list for PBXProject "CodexBattery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E4872821E71EC07FF955727 /* Debug */,
+				5E755CA83B5DC081BF566D88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8770BB894BC09D9A5EEBF506 /* Build configuration list for PBXNativeTarget "CodexBatteryWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A757F160360440F0DF9BA951 /* Debug */,
+				07F983FCDB88D1F68C1657AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B22111ACE7FA5FCCAD205429 /* Build configuration list for PBXNativeTarget "CodexBattery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D60AA0FC0D3CEE7B4BBC6B3 /* Debug */,
+				1DFFFF111ED9B867C09127F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 098278758E05643D091A5890 /* Project object */;
+}

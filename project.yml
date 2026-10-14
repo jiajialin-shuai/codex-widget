@@ -1,0 +1,52 @@
+name: CodexBattery
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    ENABLE_HARDENED_RUNTIME: YES
+    CURRENT_PROJECT_VERSION: 3
+    MARKETING_VERSION: 0.1.0
+    GENERATE_INFOPLIST_FILE: NO
+targets:
+  CodexBattery:
+    type: application
+    platform: macOS
+    sources:
+      - Sources/App
+      - Sources/Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jiajialin.codexbattery
+        PRODUCT_NAME: CodexBattery
+        INFOPLIST_FILE: Resources/App-Info.plist
+        CODE_SIGN_ENTITLEMENTS: Resources/App.entitlements
+    dependencies:
+      - target: CodexBatteryWidget
+        embed: true
+  CodexBatteryWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - Sources/Widget
+      - Sources/Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jiajialin.codexbattery.widget
+        PRODUCT_NAME: CodexBatteryWidget
+        INFOPLIST_FILE: Resources/Widget-Info.plist
+        CODE_SIGN_ENTITLEMENTS: Resources/Widget.entitlements
+        SKIP_INSTALL: YES
+schemes:
+  CodexBattery:
+    build:
+      targets:
+        CodexBattery: all
+    run:
+      config: Debug
+    archive:
+      config: Release

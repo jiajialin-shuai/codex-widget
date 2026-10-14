@@ -3,16 +3,18 @@
 原生 macOS 菜单栏工具和桌面小组件，像看键盘电量一样看 Codex 剩余额度。
 
 - 小号：周额度与五小时额度，双圆环、剩余百分比。
+- 可选透明桌面组件：macOS 26+ 使用原生 Liquid Glass，可切换“通透 / 柔和”；早期系统使用标准半透明材质。
 - 中号：双圆环和重置日期。
 - 大号：额度、重置时间、重置卡数量/最近到期、积分余额和订阅方案。
 - SwiftUI + WidgetKit，无第三方运行依赖。
+- 默认隐藏菜单栏图标；点击小组件或重新打开应用进入设置，也可开启图标。
 - 默认每 15 分钟查询，可改为 30 / 60 分钟；睡眠暂停、失败退避。
 - 每次查询启动短命 Codex app-server，查询完退出，空闲不常驻 CLI。
 - 小组件只读取归一化展示数据，不读取 Token 或浏览器 Cookie。
 
 ## 本地构建与安装
 
-需要 macOS 14+、完整 Xcode、[XcodeGen](https://github.com/yonaskolb/XcodeGen)，以及已使用 ChatGPT 账号登录的 Codex CLI（或桌面应用内的 Codex 可执行程序）。仅 API Key 登录不一定提供订阅额度。
+运行需要 macOS 14+。构建使用完整 Xcode 27（本机已验证，包含 macOS 27 SDK）、[XcodeGen](https://github.com/yonaskolb/XcodeGen)，以及已使用 ChatGPT 账号登录的 Codex CLI（或桌面应用内的 Codex 可执行程序）。仅 API Key 登录不一定提供订阅额度。
 
 ```bash
 brew install xcodegen
@@ -20,6 +22,7 @@ brew install xcodegen
 ./scripts/check.sh --live    # 使用本机登录实时验证，不写账号响应
 ./scripts/build.sh
 ./scripts/install.sh        # 默认装到 ~/Applications
+./scripts/check-widget.sh   # 应用运行后，验证 Widget 沙盒读取与缓存
 ```
 
 指定 Xcode：
@@ -28,7 +31,11 @@ brew install xcodegen
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer ./scripts/build.sh
 ```
 
-打开应用后，右键桌面 → **编辑小组件** → 搜索 **Codex** → 选择小/中/大号。保持菜单栏程序运行，以便刷新。点击小组件打开真实数据预览和设置，并更新额度。
+打开应用后，右键桌面 → **编辑小组件** → 搜索 **Codex** → 选择小/中/大号。保持后台程序运行，以便刷新。点击小组件打开真实数据预览和设置，并更新额度；在应用程序中再次打开也会显示设置窗口。
+
+如果希望单独得到明显的透明玻璃效果，在设置中启用 **透明桌面组件**。它是 AppKit 桌面面板，不是 WidgetKit 卡片，显示在普通应用窗口后面；拖动可移动，双击打开设置，右键可刷新/隐藏。尺寸和位置会保存。开启后可移除旧的 WidgetKit 卡片，避免重复显示。
+
+WidgetKit 卡片背景受系统渲染模式控制。`Color.clear` 和 Material 并不保证在全彩模式下透出桌面；透明面板使用真正的 `NSGlassEffectView` / `NSVisualEffectView`，不截图伪装背景，不扫描壁纸。
 
 本机构建使用 ad-hoc 签名，尚未提供经过 Developer ID 签名和公证的公开安装包。
 
