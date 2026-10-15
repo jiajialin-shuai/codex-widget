@@ -15,6 +15,15 @@ A lightweight, native macOS menu bar app and desktop widget for checking your re
 - Starts a short-lived Codex app-server for each query and stops it afterward. No persistent Codex subprocess while idle.
 - Widgets read only normalized display data; they do not access tokens or browser cookies.
 
+## Screenshots
+
+Sample-data layout previews rendered from the app's views. They contain no real account information and do not demonstrate the final desktop transparency provided by macOS. The application UI shown here is in Chinese.
+
+| Small | Medium | Large |
+| --- | --- | --- |
+| <img src="docs/images/small-dark.png" width="158" alt="Small dark preview"> | <img src="docs/images/medium-dark.png" width="338" alt="Medium dark preview"> | <img src="docs/images/large-dark.png" width="338" alt="Large dark preview"> |
+| <img src="docs/images/small-light.png" width="158" alt="Small light preview"> | <img src="docs/images/medium-light.png" width="338" alt="Medium light preview"> | <img src="docs/images/large-light.png" width="338" alt="Large light preview"> |
+
 ## Download and install
 
 Download the Universal ZIP from [GitHub Releases](https://github.com/jiajialin-shuai/codex-widget/releases), extract it, and move `CodexBattery.app` to `~/Applications`.

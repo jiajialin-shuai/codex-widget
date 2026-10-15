@@ -13,6 +13,15 @@
 - 每次查询启动短命 Codex app-server，查询完退出，空闲不常驻 CLI。
 - 小组件只读取归一化展示数据，不读取 Token 或浏览器 Cookie。
 
+## 截图
+
+以下为应用视图渲染的示例数据布局预览，不含真实账号信息；背景不代表系统桌面最终的透明效果。
+
+| 小号 | 中号 | 大号 |
+| --- | --- | --- |
+| <img src="docs/images/small-dark.png" width="158" alt="小号深色预览"> | <img src="docs/images/medium-dark.png" width="338" alt="中号深色预览"> | <img src="docs/images/large-dark.png" width="338" alt="大号深色预览"> |
+| <img src="docs/images/small-light.png" width="158" alt="小号浅色预览"> | <img src="docs/images/medium-light.png" width="338" alt="中号浅色预览"> | <img src="docs/images/large-light.png" width="338" alt="大号浅色预览"> |
+
 ## 下载
 
 从 [GitHub Releases](https://github.com/jiajialin-shuai/codex-widget/releases) 下载 Universal ZIP（Apple Silicon / Intel），解压后将 `CodexBattery.app` 放入 `~/Applications`，打开应用，再从桌面“编辑小组件”添加 Codex 卡片。需先安装并登录 Codex。
