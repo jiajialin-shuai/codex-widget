@@ -1,5 +1,7 @@
 # Codex Battery · Codex 电池
 
+简体中文 | [English](README.en.md)
+
 原生 macOS 菜单栏工具和桌面小组件，像看键盘电量一样看 Codex 剩余额度。
 
 - 小号：周额度与五小时额度，双圆环、剩余百分比。
