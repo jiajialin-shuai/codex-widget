@@ -11,6 +11,12 @@
 - 每次查询启动短命 Codex app-server，查询完退出，空闲不常驻 CLI。
 - 小组件只读取归一化展示数据，不读取 Token 或浏览器 Cookie。
 
+## 下载
+
+从 [GitHub Releases](https://github.com/jiajialin-shuai/codex-widget/releases) 下载 Universal ZIP（Apple Silicon / Intel），解压后将 `CodexBattery.app` 放入 `~/Applications`，打开应用，再从桌面“编辑小组件”添加 Codex 卡片。需先安装并登录 Codex。
+
+预览安装包使用 ad-hoc 签名，未经 Developer ID 签名和 Apple 公证，首次运行可能被 Gatekeeper 阻止；可自行构建源码。请使用 Release 附带的 `SHA256SUMS` 校验下载文件。Intel 与 macOS 14/15 实机仍待验证。
+
 ## 本地构建与安装
 
 运行需要 macOS 14+。构建使用完整 Xcode 27（本机已验证，包含 macOS 27 SDK）、[XcodeGen](https://github.com/yonaskolb/XcodeGen)，以及已使用 ChatGPT 账号登录的 Codex CLI（或桌面应用内的 Codex 可执行程序）。仅 API Key 登录不一定提供订阅额度。
@@ -34,7 +40,7 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer ./scripts/build.sh
 
 仅提供从系统小组件界面添加的 WidgetKit 卡片，不创建独立桌面浮层。透明背景适配的研究和已确认限制见 [原生组件透明效果研究](docs/WIDGET_BACKGROUND_RESEARCH.md)。
 
-本机构建使用 ad-hoc 签名，尚未提供经过 Developer ID 签名和公证的公开安装包。
+构建使用 ad-hoc 签名；`./scripts/package.sh` 对应用包做路径/敏感文件检查并生成 ZIP 和 SHA-256。公开预览包也未经 Developer ID 签名和公证。
 
 ## 数据的含义
 
@@ -58,4 +64,4 @@ Widget 扩展通过只监听 `127.0.0.1:49763` 的只读服务读取快照；没
 
 本项目独立开发，非 OpenAI 官方产品。参考 [CodexBar](https://github.com/steipete/CodexBar) 和 [Codex Usage Bar](https://github.com/CMMUU/codex-usage-bar) 的信息展示与本地 RPC 思路，实现未复制其代码。
 
-源码按 [MIT License](LICENSE) 开源。隐私与本地快照服务的访问边界见 [PRIVACY.md](PRIVACY.md)。尚未提供签名公证的公开安装包；原生组件透明效果仍在研究。
+源码按 [MIT License](LICENSE) 开源。隐私与本地快照服务的访问边界见 [PRIVACY.md](PRIVACY.md)。公开预览安装包未经签名公证；原生组件透明效果仍在研究。
