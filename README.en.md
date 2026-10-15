@@ -17,6 +17,14 @@ A lightweight, native macOS menu bar app and desktop widget for checking your re
 
 ## Screenshots
 
+### Unfocused desktop appearance (actual screenshot)
+
+A user-provided macOS desktop screenshot: Apple's Batteries widget is at the bottom left, and Codex Battery is at the bottom right. When unfocused, both show subdued monochrome content over translucent backgrounds. Quota values are those displayed when the screenshot was taken. Appearance depends on system settings, wallpaper, and focus; this does not establish the same background in full-color mode.
+
+<img src="docs/images/desktop-unfocused.png" width="736" alt="Unfocused desktop showing translucent Apple Batteries and Codex Battery widgets">
+
+### Sample layouts
+
 Sample-data layout previews rendered from the app's views. They contain no real account information and do not demonstrate the final desktop transparency provided by macOS. The application UI shown here is in Chinese.
 
 | Small | Medium | Large |
