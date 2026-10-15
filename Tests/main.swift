@@ -27,6 +27,26 @@ do { _ = try parse("{}"); check(false, "empty response") } catch { }
 let roundTrip = try JSONDecoder().decode(UsageSnapshot.self, from: JSONEncoder().encode(swapped))
 check(roundTrip == swapped, "cache round trip")
 
+// Reject web origins, DNS rebinding, preflights and ambiguous HTTP before returning quota.
+let nativeRequest = "GET /snapshot HTTP/1.1\r\nHost: 127.0.0.1:49763\r\nX-CodexBattery-Client: widget-v1\r\n\r\n"
+check(SnapshotRequest.isAllowed(Data(nativeRequest.utf8)), "native widget request accepted")
+for request in [
+    nativeRequest.replacingOccurrences(of: "127.0.0.1:49763", with: "attacker.example:49763"),
+    nativeRequest.replacingOccurrences(of: "GET", with: "OPTIONS"),
+    nativeRequest.replacingOccurrences(of: "/snapshot", with: "/other"),
+    nativeRequest.replacingOccurrences(of: "X-CodexBattery-Client: widget-v1\r\n", with: ""),
+    nativeRequest.replacingOccurrences(of: "\r\n\r\n", with: "\r\nOrigin: https://attacker.example\r\n\r\n"),
+    nativeRequest.replacingOccurrences(of: "\r\n\r\n", with: "\r\nSec-Fetch-Site: cross-site\r\n\r\n"),
+    nativeRequest.replacingOccurrences(of: "\r\n\r\n", with: "\r\nHost: attacker.example\r\n\r\n"),
+    nativeRequest + "body"
+] { check(!SnapshotRequest.isAllowed(Data(request.utf8)), "unsafe bridge request rejected") }
+let privateResponse = try parse("""
+{"result":{"accountId":"private-account-sentinel","email":"private-email-sentinel","token":"private-token-sentinel","rateLimits":{"planType":"plus","primary":{"windowDurationMins":300,"usedPercent":42}},"rateLimitResetCredits":{"credits":[{"id":"private-card-sentinel","status":"available","expiresAt":900}]}}}
+""")
+let sanitized = String(decoding: try JSONEncoder().encode(privateResponse), as: UTF8.self)
+check(!sanitized.contains("sentinel"), "unneeded identity and credentials excluded from cache and bridge")
+print("PASS: bridge browser isolation and snapshot data minimization")
+
 // A silent helper must be killed at the deadline, not left resident.
 let temporary = FileManager.default.temporaryDirectory.appendingPathComponent("codex-battery-test-\(UUID().uuidString)")
 try FileManager.default.createDirectory(at: temporary, withIntermediateDirectories: true)
@@ -49,7 +69,7 @@ if CommandLine.arguments.contains("--live") {
     let snapshot = try CodexClient().fetch()
     check(snapshot.hasData, "live account exposes quota")
     // No account identifiers or raw RPC output are written.
-    print("LIVE PASS: weekly=\(snapshot.weekly?.percentage ?? "missing"), fiveHour=\(snapshot.fiveHour?.percentage ?? "missing"), cards=\(snapshot.cardLabel), query=\(String(format: "%.2f", Date().timeIntervalSince(start)))s")
+    print("LIVE PASS: quota available, query=\(String(format: "%.2f", Date().timeIntervalSince(start)))s")
 }
 
 // Quit while a refresh is in flight: only our own child is cancelled and reaped.

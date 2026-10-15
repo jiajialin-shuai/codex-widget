@@ -11,10 +11,12 @@
 		05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED0D2093859F80A848271B1 /* CodexBatteryApp.swift */; };
 		22E2A0E9B8B773F070493DC8 /* CodexBatteryWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5786AFDB2F11D28D8EBEF55C /* CodexBatteryWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */; };
+		2F0F5EBCA12E5872D92FE6D4 /* SnapshotRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28AE85F5A05311350B0DE1F /* SnapshotRequest.swift */; };
 		4F976EAACA3BE6AE4562EEFD /* CodexBatteryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */; };
 		4F99803604B5E1287A0FF322 /* BatteryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CF4C75241951AB964C741 /* BatteryViews.swift */; };
 		8A1B4CC5705A485C32A32914 /* CodexClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632016BFB62E70E62C6E14D3 /* CodexClient.swift */; };
 		8AE33E37266040FB77874BF4 /* BatteryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CF4C75241951AB964C741 /* BatteryViews.swift */; };
+		B040A129BF3252894CE7945B /* SnapshotRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28AE85F5A05311350B0DE1F /* SnapshotRequest.swift */; };
 		BC471EBED73EE64FE2E4AE97 /* WidgetSnapshotLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */; };
 		CF9E45936273460DE695B160 /* UsageSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */; };
 		E48B0E59CDEF008C2B112E19 /* UsageSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */; };
@@ -55,6 +57,7 @@
 		D14E37F01CD63F59064EF4F6 /* CodexBatteryWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexBatteryWidget.swift; sourceTree = "<group>"; };
 		D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageSnapshot.swift; sourceTree = "<group>"; };
 		D37986ABC0A3793F24D9232D /* SnapshotBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotBridge.swift; sourceTree = "<group>"; };
+		F28AE85F5A05311350B0DE1F /* SnapshotRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotRequest.swift; sourceTree = "<group>"; };
 		F478940D8B4F853954CE0822 /* CodexBattery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodexBattery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				493CF4C75241951AB964C741 /* BatteryViews.swift */,
+				F28AE85F5A05311350B0DE1F /* SnapshotRequest.swift */,
 				D1D7EA8B17C546C4F4370679 /* UsageSnapshot.swift */,
 				67E9393DE04B0DFA2F104D14 /* WidgetSnapshotLoader.swift */,
 			);
@@ -200,6 +204,7 @@
 				05DE44C593CF9991C3562E5A /* CodexBatteryApp.swift in Sources */,
 				8A1B4CC5705A485C32A32914 /* CodexClient.swift in Sources */,
 				24CC15A092580A383ADF11DD /* SnapshotBridge.swift in Sources */,
+				2F0F5EBCA12E5872D92FE6D4 /* SnapshotRequest.swift in Sources */,
 				CF9E45936273460DE695B160 /* UsageSnapshot.swift in Sources */,
 				05BEC992DD820D638A755293 /* UsageStore.swift in Sources */,
 				BC471EBED73EE64FE2E4AE97 /* WidgetSnapshotLoader.swift in Sources */,
@@ -212,6 +217,7 @@
 			files = (
 				8AE33E37266040FB77874BF4 /* BatteryViews.swift in Sources */,
 				4F976EAACA3BE6AE4562EEFD /* CodexBatteryWidget.swift in Sources */,
+				B040A129BF3252894CE7945B /* SnapshotRequest.swift in Sources */,
 				E48B0E59CDEF008C2B112E19 /* UsageSnapshot.swift in Sources */,
 				FCBD959EDACBB0C5C3806E62 /* WidgetSnapshotLoader.swift in Sources */,
 			);
@@ -316,7 +322,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -385,7 +391,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;

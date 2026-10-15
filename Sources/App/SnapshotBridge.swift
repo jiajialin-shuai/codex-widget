@@ -41,10 +41,10 @@ final class SnapshotBridge: @unchecked Sendable {
                 if complete { connection.cancel() } else { self.receive(connection, buffer: request) }
                 return
             }
-            let valid = request.starts(with: Data("GET /snapshot HTTP/1.".utf8))
+            let valid = SnapshotRequest.isAllowed(request)
             let body = valid ? self.data : Data()
             let status = valid ? "200 OK" : "404 Not Found"
-            var response = Data("HTTP/1.1 \(status)\r\nContent-Type: application/json\r\nContent-Length: \(body.count)\r\nCache-Control: no-store\r\nConnection: close\r\n\r\n".utf8)
+            var response = Data("HTTP/1.1 \(status)\r\nContent-Type: application/json\r\nContent-Length: \(body.count)\r\nCache-Control: no-store\r\nX-Content-Type-Options: nosniff\r\nCross-Origin-Resource-Policy: same-origin\r\nContent-Security-Policy: default-src 'none'; frame-ancestors 'none'\r\nConnection: close\r\n\r\n".utf8)
             response.append(body)
             connection.send(content: response, completion: .contentProcessed { _ in connection.cancel() })
         }

@@ -6,3 +6,13 @@ dist/
 xcuserdata/
 *.xcworkspace/xcuserdata/
 local/
+
+# Private local data and signing materials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.mobileprovision
+snapshot.json
+*.log

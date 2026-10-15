@@ -6,6 +6,7 @@ enum WidgetSnapshotLoader {
         var snapshot = SnapshotCache.load()
         do {
             var request = URLRequest(url: SnapshotCache.endpoint)
+            request.setValue(SnapshotRequest.clientValue, forHTTPHeaderField: SnapshotRequest.clientHeader)
             request.timeoutInterval = 3
             request.cachePolicy = .reloadIgnoringLocalCacheData
             let (data, response) = try await URLSession.shared.data(for: request)

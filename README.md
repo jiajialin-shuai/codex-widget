@@ -46,7 +46,7 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer ./scripts/build.sh
 
 菜单栏程序通过本地 `codex app-server` 调用 `account/rateLimits/read`。它只保存百分比、日期、方案、积分余额、重置卡数量和到期时间，不保存账号 ID、邮箱、卡 ID 或认证信息。Codex 自己管理登录和 Token 刷新。
 
-Widget 扩展通过只监听 `127.0.0.1:49763` 的只读服务读取快照；没有修改接口。此设计无需付费开发者账号或 App Group 配置。主程序退出后小组件保留离线副本，并标记缓存数据。
+Widget 扩展通过只监听 `127.0.0.1:49763` 的只读服务读取快照；没有修改接口，拒绝网页来源请求；其他本机原生程序仍可能读取额度摘要，详见 [隐私说明](PRIVACY.md)。此设计无需付费开发者账号或 App Group 配置。主程序退出后小组件保留离线副本，并标记缓存数据。
 
 ## 项目文件
 
@@ -58,4 +58,4 @@ Widget 扩展通过只监听 `127.0.0.1:49763` 的只读服务读取快照；没
 
 本项目独立开发，非 OpenAI 官方产品。参考 [CodexBar](https://github.com/steipete/CodexBar) 和 [Codex Usage Bar](https://github.com/CMMUU/codex-usage-bar) 的信息展示与本地 RPC 思路，实现未复制其代码。
 
-当前仓库私有；公开发布前继续核验桌面小组件体验、签名、公证和安装包。
+源码按 [MIT License](LICENSE) 开源。隐私与本地快照服务的访问边界见 [PRIVACY.md](PRIVACY.md)。尚未提供签名公证的公开安装包；原生组件透明效果仍在研究。
